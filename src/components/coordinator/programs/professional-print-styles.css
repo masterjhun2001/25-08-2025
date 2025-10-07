@@ -1,0 +1,727 @@
+/* Professional Print Styles - A4 Optimized */
+@page {
+  size: A4;
+  margin: 15mm 20mm 15mm 20mm;
+  @top-center {
+    content: "Agricultural Subsidy Management System";
+    font-size: 8pt;
+    color: #666;
+  }
+  @bottom-center {
+    content: "Page " counter(page) " of " counter(pages);
+    font-size: 8pt;
+    color: #666;
+  }
+}
+
+/* A4 Print Container */
+.print-content {
+  width: 210mm;
+  min-height: 297mm;
+  max-width: 210mm;
+  margin: 0 auto;
+  padding: 15mm 20mm;
+  background: white;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+  color: #333;
+  box-sizing: border-box;
+}
+
+/* Print Media Queries */
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white;
+    font-size: 10pt;
+  }
+
+  .print-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  /* Hide non-print elements */
+  .no-print,
+  .MuiDialog-root,
+  .MuiDialogActions-root,
+  button,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Page breaks */
+  .print-section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .print-section h2 {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .print-table {
+    page-break-inside: auto;
+  }
+
+  .print-table tr {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .print-table thead {
+    display: table-header-group;
+  }
+
+  .print-table tfoot {
+    display: table-footer-group;
+  }
+}
+
+/* Screen Preview (A4 simulation) */
+@media screen {
+  .print-content {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    background: white;
+  }
+}
+
+/* Typography - A4 Optimized */
+.print-content h1 {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #2d5016;
+  margin: 0 0 12pt 0;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.print-content h2 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: #2d5016;
+  margin: 20pt 0 10pt 0;
+  padding-bottom: 4pt;
+  border-bottom: 2pt solid #2d5016;
+  line-height: 1.2;
+}
+
+.print-content h3 {
+  font-size: 12pt;
+  font-weight: 600;
+  color: #4a7c59;
+  margin: 15pt 0 8pt 0;
+  line-height: 1.2;
+}
+
+.print-content p {
+  margin: 0 0 8pt 0;
+  line-height: 1.4;
+}
+
+/* Official Letterhead - A4 Optimized */
+.official-letterhead {
+  margin-bottom: 20pt;
+  page-break-after: avoid;
+}
+
+.letterhead-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10pt;
+}
+
+.logo-section {
+  width: 60pt;
+  text-align: center;
+}
+
+.official-logo {
+  width: 50pt;
+  height: 50pt;
+  object-fit: contain;
+}
+
+.title-section {
+  flex: 1;
+  text-align: center;
+  padding: 0 20pt;
+}
+
+.title-section h1 {
+  font-size: 18pt;
+  font-weight: 700;
+  color: #2d5016;
+  margin: 0 0 4pt 0;
+  letter-spacing: 0.5pt;
+}
+
+.title-section h2 {
+  font-size: 14pt;
+  font-weight: 600;
+  color: #4a7c59;
+  margin: 0 0 4pt 0;
+  border: none;
+  padding: 0;
+}
+
+.office-address {
+  font-size: 10pt;
+  color: #666;
+  margin: 0;
+  font-style: italic;
+}
+
+.letterhead-divider {
+  height: 3pt;
+  background: linear-gradient(90deg, #2d5016 0%, #4a7c59 50%, #5b9aa0 100%);
+  margin: 10pt 0;
+}
+
+/* Document Title */
+.document-title {
+  text-align: center;
+  margin: 20pt 0;
+  page-break-after: avoid;
+}
+
+.document-title h1 {
+  font-size: 16pt;
+  font-weight: 700;
+  color: #2d5016;
+  margin: 0 0 6pt 0;
+  letter-spacing: 1pt;
+}
+
+.document-subtitle {
+  font-size: 11pt;
+  color: #666;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Print Sections */
+.print-section {
+  margin-bottom: 20pt;
+  page-break-inside: avoid;
+}
+
+.print-section:last-child {
+  margin-bottom: 0;
+}
+
+/* Grid Layouts - A4 Optimized */
+.print-grid {
+  display: grid;
+  gap: 10pt;
+  margin: 10pt 0;
+}
+
+.print-grid-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.print-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.print-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Stat Cards - A4 Optimized */
+.print-stat-card {
+  padding: 12pt;
+  border: 1pt solid #e0e0e0;
+  border-radius: 4pt;
+  text-align: center;
+  background: #f8f9fa;
+  page-break-inside: avoid;
+}
+
+.print-stat-number {
+  display: block;
+  font-size: 14pt;
+  font-weight: 700;
+  color: #2d5016;
+  margin-bottom: 4pt;
+  line-height: 1.1;
+}
+
+.print-stat-number.currency {
+  font-size: 11pt;
+}
+
+.print-stat-label {
+  display: block;
+  font-size: 8pt;
+  color: #666;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5pt;
+  line-height: 1.2;
+}
+
+/* Tables - A4 Optimized */
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10pt 0;
+  font-size: 9pt;
+  page-break-inside: auto;
+}
+
+.print-table th {
+  background: #2d5016;
+  color: white;
+  padding: 8pt 6pt;
+  text-align: left;
+  font-weight: 600;
+  font-size: 8pt;
+  border: 1pt solid #2d5016;
+  line-height: 1.2;
+}
+
+.print-table td {
+  padding: 6pt;
+  border: 1pt solid #ddd;
+  vertical-align: top;
+  line-height: 1.3;
+}
+
+.print-table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+.print-table tbody tr:hover {
+  background: #e8f5e9;
+}
+
+/* Table Text Alignment */
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/* Currency Formatting */
+.currency {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #2d5016;
+}
+
+/* Status Indicators */
+.print-status {
+  display: inline-block;
+  padding: 2pt 6pt;
+  border-radius: 3pt;
+  font-size: 7pt;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3pt;
+}
+
+.print-status.distributed {
+  background: #e8f5e9;
+  color: #2d5016;
+  border: 1pt solid #4a7c59;
+}
+
+.print-status.unclaimed {
+  background: #fff3e0;
+  color: #f57c00;
+  border: 1pt solid #ff9800;
+}
+
+.print-status.pending {
+  background: #f5f5f5;
+  color: #666;
+  border: 1pt solid #ccc;
+}
+
+/* Info Sections */
+.program-info-section {
+  margin: 15pt 0;
+  page-break-inside: avoid;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8pt;
+  margin: 10pt 0;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  padding: 6pt;
+  border-bottom: 1pt solid #e0e0e0;
+}
+
+.info-item label {
+  font-weight: 600;
+  color: #2d5016;
+  min-width: 80pt;
+  margin-right: 10pt;
+  font-size: 9pt;
+}
+
+.info-value {
+  flex: 1;
+  font-size: 9pt;
+  color: #333;
+}
+
+/* Distribution Table */
+.distribution-table-section {
+  margin: 20pt 0;
+}
+
+.distribution-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 8pt;
+  margin: 10pt 0;
+}
+
+.distribution-table th {
+  background: #2d5016;
+  color: white;
+  padding: 6pt 4pt;
+  text-align: center;
+  font-weight: 600;
+  font-size: 7pt;
+  border: 1pt solid #2d5016;
+  line-height: 1.2;
+}
+
+.distribution-table td {
+  padding: 4pt;
+  border: 1pt solid #ddd;
+  vertical-align: top;
+  line-height: 1.2;
+}
+
+.distribution-table .beneficiary-name {
+  font-weight: 600;
+  color: #2d5016;
+}
+
+.distribution-table .reference-code,
+.distribution-table .rsbsa-number {
+  font-family: 'Courier New', monospace;
+  font-size: 7pt;
+  color: #666;
+}
+
+.distribution-table .quantity {
+  font-weight: 600;
+  text-align: center;
+}
+
+.distribution-table .value {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #2d5016;
+  text-align: right;
+}
+
+.distribution-table .signature-cell {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.signature-line {
+  border-bottom: 1pt solid #333;
+  height: 15pt;
+  margin: 2pt 0;
+  min-width: 60pt;
+}
+
+.empty-signature {
+  height: 15pt;
+}
+
+/* Summary Section */
+.summary-section {
+  margin: 20pt 0;
+  page-break-inside: avoid;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10pt;
+  margin: 10pt 0;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8pt;
+  border: 1pt solid #e0e0e0;
+  border-radius: 3pt;
+  background: #f8f9fa;
+}
+
+.summary-item label {
+  font-weight: 600;
+  color: #2d5016;
+  font-size: 9pt;
+}
+
+.summary-value {
+  font-weight: 700;
+  color: #333;
+  font-size: 10pt;
+}
+
+.summary-value.currency {
+  font-family: 'Courier New', monospace;
+  color: #2d5016;
+}
+
+/* Signatures Section */
+.signatures-section {
+  margin: 30pt 0 20pt 0;
+  page-break-inside: avoid;
+}
+
+.signatures-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20pt;
+  margin: 20pt 0;
+}
+
+.signature-box {
+  text-align: center;
+  padding: 15pt;
+  border: 1pt solid #e0e0e0;
+  border-radius: 4pt;
+  background: #f8f9fa;
+}
+
+.signature-line-large {
+  border-bottom: 2pt solid #333;
+  height: 25pt;
+  margin: 10pt 0;
+}
+
+.signature-name {
+  font-weight: 700;
+  color: #2d5016;
+  font-size: 11pt;
+  margin: 8pt 0 4pt 0;
+  text-transform: uppercase;
+}
+
+.signature-title {
+  font-size: 9pt;
+  color: #666;
+  margin: 0 0 8pt 0;
+}
+
+.signature-date {
+  font-size: 8pt;
+  color: #999;
+  margin: 8pt 0 0 0;
+}
+
+/* Notes Section */
+.notes-section {
+  margin: 20pt 0;
+  page-break-inside: avoid;
+}
+
+.notes-content {
+  padding: 12pt;
+  background: #f8f9fa;
+  border: 1pt solid #e0e0e0;
+  border-radius: 4pt;
+}
+
+.notes-content p {
+  margin: 0 0 6pt 0;
+  font-size: 9pt;
+  line-height: 1.4;
+}
+
+.notes-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Footer */
+.print-footer,
+.document-footer {
+  margin-top: 30pt;
+  padding-top: 15pt;
+  border-top: 2pt solid #2d5016;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+.footer-content {
+  font-size: 8pt;
+  color: #666;
+  line-height: 1.4;
+}
+
+.footer-content p {
+  margin: 0 0 4pt 0;
+}
+
+.footer-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Utility Classes */
+.mb-15 {
+  margin-bottom: 15pt;
+}
+
+.mt-15 {
+  margin-top: 15pt;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+.no-break {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* Print Header Specific */
+.print-header {
+  margin-bottom: 25pt;
+  page-break-after: avoid;
+}
+
+.print-header-title {
+  font-size: 18pt;
+  font-weight: 700;
+  color: #2d5016;
+  text-align: center;
+  margin: 0 0 8pt 0;
+  letter-spacing: 1pt;
+}
+
+.print-header-subtitle {
+  font-size: 12pt;
+  color: #4a7c59;
+  text-align: center;
+  margin: 0 0 15pt 0;
+  font-weight: 500;
+}
+
+.print-header-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10pt;
+  margin: 15pt 0;
+  padding: 10pt;
+  background: #f8f9fa;
+  border: 1pt solid #e0e0e0;
+  border-radius: 4pt;
+}
+
+.print-header-info-item {
+  display: flex;
+  align-items: center;
+  font-size: 9pt;
+}
+
+.print-header-info-label {
+  font-weight: 600;
+  color: #2d5016;
+  min-width: 70pt;
+  margin-right: 8pt;
+}
+
+.print-header-info-value {
+  color: #333;
+  flex: 1;
+}
+
+/* Responsive adjustments for smaller A4 content */
+@media print and (max-width: 210mm) {
+  .print-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .signatures-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ensure proper A4 dimensions */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+  
+  html, body {
+    width: 210mm;
+    height: 297mm;
+  }
+}
+
+/* Additional A4 specific adjustments */
+.print-content table {
+  font-size: 8pt;
+}
+
+.print-content .print-table th {
+  font-size: 7pt;
+  padding: 4pt;
+}
+
+.print-content .print-table td {
+  font-size: 8pt;
+  padding: 3pt;
+}
+
+/* Ensure content fits in A4 */
+.print-section h2 {
+  font-size: 12pt;
+  margin: 15pt 0 8pt 0;
+}
+
+.print-stat-card {
+  padding: 8pt;
+}
+
+.print-stat-number {
+  font-size: 12pt;
+}
